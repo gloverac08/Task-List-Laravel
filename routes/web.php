@@ -11,13 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
+Route::get('/', 'ViewsController@welcome');
 
-Route::get('/taskList', function () {
-  return view('task_list');
-});
+Route::get('/task-list', 'ViewsController@task_list');
 
 Route::post('/addTask', function () {
 
