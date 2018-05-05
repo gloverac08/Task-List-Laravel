@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Task;
 
-class TasksController extends Controller
-{
+class TasksController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $tasks = Task::all(); // retreives all tasks from db
+        return view('task_list')->with('tasks', $tasks); // injects them as array into view
     }
 
     /**
