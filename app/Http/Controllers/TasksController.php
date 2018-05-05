@@ -11,9 +11,11 @@ class TasksController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
+
+    // retrieve all tasks from db and then inject them into view
     public function index() {
-        $tasks = Task::all(); // retreives all tasks from db
-        return view('task_list')->with('tasks', $tasks); // injects them as array into view
+        $tasks = Task::all();
+        return view('task_list')->with('tasks', $tasks); 
     }
 
     /**
@@ -32,9 +34,14 @@ class TasksController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+
+    // save new entry in db from user input
+    public function store(Request $request) {
+        $task = new Task;
+        $task->body = $request->input('body');
+        $task->save();
+
+        return redirect('/tasks');
     }
 
     /**
