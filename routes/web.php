@@ -15,15 +15,15 @@ Route::get('/', 'ViewsController@welcome');
 
 Route::get('/task-list', 'ViewsController@task_list');
 
-Route::post('/addTask', function () {
+Route::post('/add-task', function () {
 
 });
 
-Route::delete('/deleteTask', function () {
+Route::delete('/delete-task', function () {
 
 });
 
-Route::patch('/editTask', function () {
+Route::patch('/edit-task', function () {
 
 });
 
