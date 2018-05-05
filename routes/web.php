@@ -15,15 +15,5 @@ Route::get('/', 'ViewsController@welcome');
 
 Route::get('/task-list', 'ViewsController@task_list');
 
-Route::post('/add-task', function () {
-
-});
-
-Route::delete('/delete-task', function () {
-
-});
-
-Route::patch('/edit-task', function () {
-
-});
+Route::resource('tasks', 'TasksController');
 
