@@ -1,8 +1,8 @@
 @extends('layout')
-
+<!-- tasks page -->
 @section('content')
 <div class="container-fluid heading">
-    <H1 class="title">Task List</H1>
+    <H1>Task List</H1>
 </div>
 <div class="container">
     <div class="card new-task">
@@ -15,7 +15,7 @@
         <div class="card-body">
             <form action="/create" method="POST" class="form-horizontal col-6">
                 @csrf
-                <!-- Task Name -->
+                <!-- Task -->
                 <div class="form-group">
                     <div class="col-7">
                         <input type="text" name="body" id="task-body" class="form-control">

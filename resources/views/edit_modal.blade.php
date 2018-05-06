@@ -2,7 +2,6 @@
 <button 
     type="button" 
     class="btn btn-primary" 
-    data-text={{$text}}
     data-toggle="modal" 
     data-target="#edit-modal">
     Edit Task
@@ -25,9 +24,9 @@
                     <form action="/edit/{{$id}}" method="POST" class="form-horizontal">
                         @method('PATCH')
                         @csrf
-                        <div class="form-group">
+                        <div class="form-group task-edit">
                             <div class="col-md-offset-6">
-                                <input type="text" name="body" id="task-body" class="form-control">
+                                <input type="text" name="body" class="form-control">
                             </div>
                         </div>
                         <!-- Add Task Button -->

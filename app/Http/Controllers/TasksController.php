@@ -15,7 +15,6 @@ class TasksController extends Controller {
 
     // retrieve all tasks from db and then inject them into view
     public function index() {
-        Log::info('first log');
         $tasks = Task::all();
         return view('task_list')->with('tasks', $tasks); 
     }
@@ -46,8 +45,10 @@ class TasksController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        Log::info('id in update:'.$id);
-        Log::info('request->input in update:'.$request->input('body'));
+        $validatedData = $request->validate([
+            'body' => 'required|max:255',
+        ]);
+
         $task = Task::findOrFail($id);
         $task->body = $request->input('body');
         $task->save();
@@ -62,7 +63,6 @@ class TasksController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        Log::info('task id in destroy function '.$id);
         Task::findOrFail($id)->delete();
 
         return redirect('/tasks');
