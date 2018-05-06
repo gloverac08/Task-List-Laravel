@@ -7,7 +7,7 @@
 <div class="container">
     <div class="card new-task">
     <!-- Display Validation Errors -->
-    {{-- @include('common.errors') --}}
+    @include('errors')
     <!-- New Task Form -->
         <div class="card-header">
             <h4>Add a new task</h4>
