@@ -13693,11 +13693,6 @@ module.exports = __webpack_require__(36);
 
 __webpack_require__(12);
 
-$('#edit').on('show.bs.modal', function (event) {
-  console.log('event fired');
-  var button = $(event.relatedTarget);
-});
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
