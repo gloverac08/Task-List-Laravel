@@ -39,8 +39,8 @@
                             @csrf
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
-
-                        {{$task->body}}
+                        <span>{{$task->body}}</span>
+                        <span class="edit">@include('edit_modal')</span>
                     </li>
                 @endforeach
             @else
