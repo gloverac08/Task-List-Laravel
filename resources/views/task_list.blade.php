@@ -8,8 +8,7 @@
         {{-- @include('common.errors') --}}
         <!-- New Task Form -->
             <form action="/tasks" method="POST" class="form-horizontal">
-                {{ csrf_field() }}
-
+                @csrf
                 <!-- Task Name -->
                 <div class="form-group">
                     <div class="col-sm-6">
@@ -35,10 +34,10 @@
                     <li class="list-group-item">
 
                         <!-- Delete button -->
-                        <form action="/tasks{{$task->id}} method="POST">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }} 
-                            <button class="btn btn-danger">Delete</button>
+                        <form action="/tasks/{{$task->id}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
 
                         {{$task->body}}

@@ -87,9 +87,9 @@ class TasksController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        Log::info('id in destroy function '.$id);
-        Task::find($id)->delete();
+        Log::info('task id in destroy function '.$id);
+        Task::findOrFail($id)->delete();
 
-        return redirect('/');
+        return redirect('/tasks');
     }
 }
