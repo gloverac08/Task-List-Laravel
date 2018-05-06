@@ -1,3 +1,14 @@
+Run composer install
+
+Create .env file and set environment variables for mysql database 
+
+Run php artisan key:generate
+
+Run php artisan migrate
+
+Run php artisan serve
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
