@@ -7,7 +7,7 @@
         <!-- Display Validation Errors -->
         {{-- @include('common.errors') --}}
         <!-- New Task Form -->
-            <form action="/tasks" method="POST" class="form-horizontal">
+            <form action="/create" method="POST" class="form-horizontal">
                 @csrf
                 <!-- Task Name -->
                 <div class="form-group">
@@ -50,7 +50,7 @@
                             </form>
                         </td>
                         <td>
-                            <div class="edit">@include('edit_modal')</div>
+                            <div class="edit">@include('edit_modal', ['text' => $task->body, 'id' => $task->id])</div>
                         </td>
                         
                     </tr>

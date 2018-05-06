@@ -1,11 +1,15 @@
+ <!-- Edit Button/Trigger Modal -->
 <button 
     type="button" 
     class="btn btn-primary" 
+    data-text={{$text}}
     data-toggle="modal" 
-    data-target="#editModal">
+    data-target="#edit-modal">
   Edit Task
 </button>
-<div class="modal" id="editModal" 
+
+ <!-- Edit Modal -->
+<div class="modal" id="edit-modal" 
     tabindex="-1" role="dialog" 
     aria-labelledby="editModalLabel">
   <div class="modal-dialog">
@@ -18,20 +22,29 @@
         <h4 class="modal-title" 
         id="editModalLabel">Edit Task</h4>
       </div>
+  
+       <!-- Modal Body -->
       <div class="modal-body">
         <div class="col-sm-6">
-          <input type="text" name="body" id="task-edit" class="form-control">
+          <form action="/edit/{{$id}}" method="POST" class="form-horizontal">
+            @method('PATCH')
+            @csrf
+            <div class="form-group">
+              <div class="col-sm-6">
+                  <input type="text" name="body" id="task-body" class="form-control">
+              </div>
+            </div>
+
+            <!-- Add Task Button -->
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <button type="submit" class="btn btn-default">
+                        <i class="fa fa-plus"></i> Add Task
+                    </button>
+                </div>
+            </div>
+          </form>
         </div>
-      <div class="modal-footer">
-        <button type="button" 
-          class="btn btn-default" 
-          data-dismiss="modal">Close</button>
-        <span class="pull-right">
-          <button type="button" class="btn btn-primary">
-            Submit
-          </button>
-        </span>
-      </div>
     </div>
   </div>
 </div>

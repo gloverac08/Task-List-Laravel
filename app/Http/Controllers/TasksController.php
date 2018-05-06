@@ -36,8 +36,6 @@ class TasksController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-    // save new entry in db from user input
     public function store(Request $request) {
         $task = new Task;
         $task->body = $request->input('body');
@@ -75,9 +73,14 @@ class TasksController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        Log::info('id in update:'.$id);
+        Log::info('request->input in update:'.$request->input('body'));
+        $task = Task::findOrFail($id);
+        $task->body = $request->input('body');
+        $task->save();
+
+        return redirect('/tasks');
     }
 
     /**

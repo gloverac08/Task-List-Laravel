@@ -15,7 +15,9 @@ Route::get('/', 'ViewsController@welcome');
 
 Route::get('/tasks', 'TasksController@index');
 
-Route::post('/tasks', 'TasksController@store');
+Route::post('/create', 'TasksController@store');
+
+Route::patch('/edit/{id}', 'TasksController@update');
 
 Route::delete('/tasks/{task}', 'TasksController@destroy');
 
