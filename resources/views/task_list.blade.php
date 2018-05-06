@@ -28,25 +28,44 @@
         </div>
 
         <!-- Display all tasks -->
-        <ul class="list-group">
-            @if(count($tasks) > 0)
+        <table class="table">
+            <thead class="thead-light">
+                <th>Tasks</th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                @if(count($tasks) > 0)
                 @foreach($tasks as $task)
-                    <li class="list-group-item">
-
+                    <tr class="table-text"> 
+                        <td>
+                            <div>{{$task->body}}</div>
+                        </td>
                         <!-- Delete button -->
-                        <form action="/tasks/{{$task->id}}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                        <span>{{$task->body}}</span>
-                        <span class="edit">@include('edit_modal')</span>
-                    </li>
+                        <td>
+                            <form action="/tasks/{{$task->id}}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                        <td>
+                            <div class="edit">@include('edit_modal')</div>
+                        </td>
+                        
+                    </tr>
                 @endforeach
-            @else
-                <p>No tasks saved yet. Add a new task</p>
-            @endif
-        </ul>
+                @else
+                    <tr>
+                        <td>
+                            <div>
+                                No tasks saved yet. Add a new task
+                            </div>
+                        </td>
+                    </tr>
+                @endif
+            </tbody>
+ 
     </div>
 
 @endsection
