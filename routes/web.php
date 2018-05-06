@@ -13,7 +13,9 @@
 
 Route::get('/', 'ViewsController@welcome');
 
-Route::get('/task-list', 'ViewsController@task_list');
+Route::get('/tasks', 'TasksController@index');
 
-Route::resource('tasks', 'TasksController');
+Route::post('/tasks', 'TasksController@store');
+
+Route::delete('/tasks/{task}', 'TasksController@destroy');
 

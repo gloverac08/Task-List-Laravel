@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Task;
 
 class TasksController extends Controller {
@@ -14,6 +15,7 @@ class TasksController extends Controller {
 
     // retrieve all tasks from db and then inject them into view
     public function index() {
+        Log::info('first log');
         $tasks = Task::all();
         return view('task_list')->with('tasks', $tasks); 
     }
@@ -84,8 +86,10 @@ class TasksController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+        Log::info('id in destroy function '.$id);
+        Task::find($id)->delete();
+
+        return redirect('/');
     }
 }

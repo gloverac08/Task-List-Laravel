@@ -28,11 +28,21 @@
             </form>
         </div>
 
-        {{-- diplay all tasks --}}
+        <!-- Display all tasks -->
         <ul class="list-group">
             @if(count($tasks) > 0)
                 @foreach($tasks as $task)
-                    <li class="list-group-item"><button>Delete</button>{{$task->body}}</li>
+                    <li class="list-group-item">
+
+                        <!-- Delete button -->
+                        <form action="/tasks{{$task->id}} method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }} 
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+
+                        {{$task->body}}
+                    </li>
                 @endforeach
             @else
                 <p>No tasks saved yet. Add a new task</p>
